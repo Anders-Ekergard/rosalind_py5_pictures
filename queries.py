@@ -10,4 +10,5 @@ queries_a = [
     ]
 #BRAC1 from humans and Arabidopsis thaliana
 queries_b = [
-    (parse_newick("(sp|Q8RXD4|BRCA1_ARATH:0.76747,sp|P38398|BRCA1_HUMAN:0.76747); sp|P38398|BRCA1_HUMAN), sp|Q8RXD4|BRCA1_ARATH")]
+    (parse_newick("(sp|Q8RXD4|BRCA1_ARATH:0.76747,sp|P38398|BRCA1_HUMAN:0.76747);"), ["sp|P38398|BRCA1_HUMAN", "sp|Q8RXD4|BRCA1_ARATH"])
+]
