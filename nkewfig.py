@@ -7,10 +7,10 @@ Scale: code from Rosalind problem-solving session with Phillip Compeau, Carnegie
 import py5
 from fibc import draw_circle
 from dna import draw_dna
-from star import star
+
 from queries import queries_a
 from datatypes import Tree
-from custom_io import parse_newick, parse_distance_queries, format_distance, write_result
+from custom_io import format_distance
 
 
 
@@ -111,7 +111,7 @@ def draw():
             if j == 2 and i == 2:
                 draw_dna(x, y-25, s*0.25)
             else:
-                #star(x, y, x)
+
                 draw_circle(x, y, s*35)
                 
             
