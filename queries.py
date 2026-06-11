@@ -9,51 +9,5 @@ queries_a = [
 
     ]
 #BRAC1 from humans and Arabidopsis thaliana
-queries_b1 = [
+queries_b = [
     (parse_newick("(sp|Q8RXD4|BRCA1_ARATH:0.76747,sp|P38398|BRCA1_HUMAN:0.76747); sp|P38398|BRCA1_HUMAN), sp|Q8RXD4|BRCA1_ARATH")]
-queries_b2 = [
-        (
-            parse_newick(
-                "(((sp|P51587|BRCA2_HUMAN:0.20897,sp|P97929|BRCA2_MOUSE:0.20931):0.22163,"
-                "sp|Q9W157|BRCA2_DROME:0.42375):0.02097,"
-                "(sp|Q8RXD4|BRCA1_ARATH:0.36290,sp|B6VQ60|BRCA1_CAEEL:0.34960):0.04972,"
-                "(sp|Q864U1|BRCA1_BOVIN:0.13552,(sp|P38398|BRCA1_HUMAN:0.12372,"
-                "sp|Q95153|BRCA1_CANLF:0.12977):0.01352):0.08013):0.14917);" ,
-            ),
-            "sp|Q8RXD4|BRCA1_ARATH",
-            "sp|P38398|BRCA1_HUMAN",
-        ),
-        (
-            parse_newick(
-                "(((sp|P51587|BRCA2_HUMAN:0.20897,sp|P97929|BRCA2_MOUSE:0.20931):0.22163,"
-                "sp|Q9W157|BRCA2_DROME:0.42375):0.02097,"
-                "(sp|Q8RXD4|BRCA1_ARATH:0.36290,sp|B6VQ60|BRCA1_CAEEL:0.34960):0.04972,"
-                "(sp|Q864U1|BRCA1_BOVIN:0.13552,(sp|P38398|BRCA1_HUMAN:0.12372,"
-                "sp|Q95153|BRCA1_CANLF:0.12977):0.01352):0.08013):0.14917);"
-            ),
-            "sp|B6VQ60|BRCA1_CAEEL",
-            "sp|P38398|BRCA1_HUMAN",
-        ),
-        (
-            parse_newick(
-                "(((sp|P51587|BRCA2_HUMAN:0.20897,sp|P97929|BRCA2_MOUSE:0.20931):0.22163,"
-                "sp|Q9W157|BRCA2_DROME:0.42375):0.02097,"
-                "(sp|Q8RXD4|BRCA1_ARATH:0.36290,sp|B6VQ60|BRCA1_CAEEL:0.34960):0.04972,"
-                "(sp|Q864U1|BRCA1_BOVIN:0.13552,(sp|P38398|BRCA1_HUMAN:0.12372,"
-                "sp|Q95153|BRCA1_CANLF:0.12977):0.01352):0.08013):0.14917);"
-            ),
-            "sp|Q864U1|BRCA1_BOVIN",
-            "sp|P38398|BRCA1_HUMAN",
-        ),
-        (
-            parse_newick(
-                "(((sp|P51587|BRCA2_HUMAN:0.20897,sp|P97929|BRCA2_MOUSE:0.20931):0.22163,"
-                "sp|Q9W157|BRCA2_DROME:0.42375):0.02097,"
-                "(sp|Q8RXD4|BRCA1_ARATH:0.36290,sp|B6VQ60|BRCA1_CAEEL:0.34960):0.04972,"
-                "(sp|Q864U1|BRCA1_BOVIN:0.13552,(sp|P38398|BRCA1_HUMAN:0.12372,"
-                "sp|Q95153|BRCA1_CANLF:0.12977):0.01352):0.08013):0.14917);"
-            ),
-            "sp|P51587|BRCA2_HUMAN",
-            "sp|P38398|BRCA1_HUMAN",
-        )
-    ]
