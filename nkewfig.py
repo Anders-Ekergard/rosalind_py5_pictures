@@ -5,14 +5,17 @@ Scale: code from Rosalind problem-solving session with Phillip Compeau, Carnegie
 """
 
 import py5
+from fibc import draw_circle
 from dna import draw_dna
+from star import star
+from queries import queries_a
 from datatypes import Tree
 from custom_io import parse_newick, parse_distance_queries, format_distance, write_result
 
 
 
 def setup():
-    py5.size(750, 750)
+    py5.size(750, 450)
     py5.background(255)
     py5.no_loop()
 
@@ -82,37 +85,9 @@ def newick_weighted_distances(queries: list[tuple[Tree, str, str]]) -> list[floa
 
 def draw():
     print("Rita")
-    m = 10
-    queries = [
-        (
-            parse_newick("(
-(
-(
-sp|P51587|BRCA2_HUMAN:0.20897,
-sp|P97929|BRCA2_MOUSE:0.20931)
-:0.22163,
-sp|Q9W157|BRCA2_DROME:0.42375)
-:0.02097,
-(
-sp|Q8RXD4|BRCA1_ARATH:0.36290,
-sp|B6VQ60|BRCA1_CAEEL:0.34960)
-:0.04972,
-(
-sp|P48754|BRCA1_MOUSE:0.23164,
-(
-sp|Q864U1|BRCA1_BOVIN:0.13552,
-(
-sp|P38398|BRCA1_HUMAN:0.12372,
-sp|Q95153|BRCA1_CANLF:0.12977)
-:0.01352)
-:0.08013)
-:0.14917);
-Phylogram
-     
-Selected  0  branches with current label
-
-        ),
-    ]
+    m = 40
+    queries = queries_a
+    
     answers = newick_weighted_distances(queries)
     scale: list[float] = answers.copy()
     # Upprepa för att få 8 värden
@@ -125,17 +100,22 @@ Selected  0  branches with current label
 
             # Välj rätt skalvärde
             if j % 2 == 0:
-                s = (scale[i])
+                s = 1*(scale[i])
             else:
-                s = (scale[7 - i])
+                s = 1*(scale[7 - i])
 
             x = m + j * py5.width / 8
             y = m + i * py5.height / 8
 
             # Skicka bara talet vidare
-            draw_dna(x, y, s)
-            print(s)
-
+            if j == 2 and i == 2:
+                draw_dna(x, y-25, s*0.25)
+            else:
+                #star(x, y, x)
+                draw_circle(x, y, s*35)
+                
+            
+  
 def key_pressed():
     """Spara en bild när 's' trycks ned."""
     if py5.key == 's':
