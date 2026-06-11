@@ -1,6 +1,8 @@
 import py5
 import os
 from typing import Dict, List, Any
+from whalef import draw_whale
+from fibc import draw_circle
 import requests
 
 api_key = os.getenv("api_key") or os.getenv("API_KEY")
@@ -82,7 +84,7 @@ def get_yearly_sentiment(
     return yearly_sentiments
 def draw(sentiments: List[float]):
     m = 40
-    s = sentiments
+    scale = sentiments
     for i in range(8):
         for j in range(8):
 
@@ -97,7 +99,7 @@ def draw(sentiments: List[float]):
 
             # Skicka bara talet vidare
         if j == 2 and i == 2:
-            draw_whale-25, s*0.25)
+            draw_whale(x, y, s*0.25)
         else:
                 #star(x, y, x)
             draw_circle(x, y, s*35)
