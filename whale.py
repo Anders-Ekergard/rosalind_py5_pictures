@@ -82,6 +82,12 @@ def get_yearly_sentiment(
             yearly_sentiments.append(sentiment)
 
     return yearly_sentiments
+
+def setup():
+    py5.size(750, 450)
+    py5.background(255)
+    py5.no_loop()  # Ingen loop, ritning sker en gång
+
 def draw(sentiments: List[float]):
     m = 40
     scale = sentiments
