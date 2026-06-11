@@ -1,4 +1,3 @@
-
 """ 
 Code using py5, Anders Ekergård
 Scale: code from Rosalind problem-solving session with Phillip Compeau, Carnegie Mellon professor and Rosalind co-founder
@@ -40,29 +39,29 @@ def path_weight(tree: Tree, start: str, end: str) -> float:
     """
     if start == end:
         return 0.0
-    #make sure both nodes are in tree
+    # Make sure both nodes are in tree
     if not tree.has(start) or not tree.has(end):
         return -1.0
-    # keep track of distance to each node
+    # Keep track of distance to each node
     weight_so_far: dict[str, float]= {start:0}
 
-    # quees in order of discovery
+    # Queue in order of discovery
     queue: list[str]= [start]
-    # index to represent current element in queue
+    # Index to represent current element in queue
     head = 0
     while head < len(queue):
-        node = queue[head] #Current node being exploarte
-        head += 1 # next element in queue
-        #range over neighbors of current node
+        node = queue[head] # Current node being explored
+        head += 1 # Next element in queue
+        # Range over neighbors of current node
         for neighbor, edge_weight in tree.neighbors(node):
-            # Have I seen this neighboor before?
+            # Have I seen this neighbor before?
             if neighbor not in weight_so_far:
-                #Update weight_so_far
+                # Update weight_so_far
                 weight_so_far[neighbor] = weight_so_far[node] + edge_weight
-                #are we finished?
+                # Are we finished?
                 if neighbor == end:
                     return weight_so_far[neighbor]
-                # if I'm here neighbor is a new node encounteed that we need to explore
+                # If I'm here neighbor is a new node encountered that we need to explore
                 queue.append(neighbor)
                 
     return -1.0
@@ -84,13 +83,13 @@ def newick_weighted_distances(queries: list[tuple[Tree, str, str]]) -> list[floa
     return answers
 
 def draw():
-    print("Rita")
+    print("Drawing")
     m = 40
     queries = queries_a
     
     answers = newick_weighted_distances(queries)
     scale: list[float] = answers.copy()
-    # Upprepa för att få 8 värden
+    # Repeat to get 8 values
     while len(scale) < 8:
         scale.extend(answers)
     scale = scale[:8]
@@ -98,7 +97,7 @@ def draw():
     for i in range(8):
         for j in range(8):
 
-            # Välj rätt skalvärde
+            # Choose the right scale value
             if j % 2 == 0:
                 s = 1*(scale[i])
             else:
@@ -107,7 +106,7 @@ def draw():
             x = m + j * py5.width / 8
             y = m + i * py5.height / 8
 
-            # Skicka bara talet vidare
+            # Send only the value forward
             if j == 2 and i == 2:
                 draw_dna(x, y-25, s*0.25)
             else:
@@ -117,7 +116,7 @@ def draw():
             
   
 def key_pressed():
-    """Spara en bild när 's' trycks ned."""
+    """Save an image when 's' is pressed."""
     if py5.key == 's':
         py5.save_frame("dnatree_######.png")
     
